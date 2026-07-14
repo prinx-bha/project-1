@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raj Electronic — Electronic Products, Varanasi</title>
+<meta name="description" content="Raj Electronic — quality electronic products in Varanasi, UP. Order online, pay on delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1220;
+    --navy:#10192E;
+    --navy-2:#16223E;
+    --paper:#F4F6FA;
+    --card:#FFFFFF;
+    --line:#E2E6EE;
+    --amber:#FFB020;
+    --amber-deep:#E89400;
+    --green:#1E9E6B;
+    --muted:#5B6577;
+    --danger:#E24C4C;
+    --radius:14px;
+    --shadow: 0 8px 24px rgba(16,25,46,0.08);
+    --shadow-lg: 0 20px 48px rgba(16,25,46,0.22);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:70px;
+  }
+  h1,h2,h3, .display{ font-family:'Space Grotesk', sans-serif; }
+  .mono{ font-family:'JetBrains Mono', monospace; letter-spacing:0.02em; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  button{ font-family:inherit; cursor:pointer; border:none; }
+
+  /* ===== Circuit motif divider (signature element) ===== */
+  .circuit-rule{
+    height:14px;
+    width:100%;
+    background:
+      linear-gradient(var(--amber), var(--amber)) left 0 top 6px / 100% 2px no-repeat;
+    position:relative;
+    margin: 0 0 0 0;
+    opacity:0.9;
+  }
+  .circuit-rule::before, .circuit-rule::after{
+    content:"";
+    position:absolute; top:2px;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--amber);
+  }
+  .circuit-rule::before{ left:6%; }
+  .circuit-rule::after{ right:6%; }
+
+  /* ===== Header ===== */
+  header.site{
+    background:var(--navy);
+    color:#fff;
+    padding:16px 20px;
+    position:sticky;
+    top:0;
+    z-index:50;
+    box-shadow:0 2px 12px rgba(0,0,0,0.15);
+  }
+  .header-inner{
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand-mark{
+    width:42px; height:42px;
+    border-radius:10px;
+    background:linear-gradient(135deg, var(--amber), var(--amber-deep));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:18px;
+    color:var(--navy);
+    flex-shrink:0;
+  }
+  .brand-text h1{ font-size:19px; font-weight:700; line-height:1.15; }
+  .brand-text p{ font-size:11.5px; color:#B7C0D6; margin-top:2px; }
+  .header-actions{ display:flex; align-items:center; gap:10px; }
+  .icon-btn{
+    background:rgba(255,255,255,0.08);
+    color:#fff;
+    width:40px; height:40px;
+    border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    transition:background .15s ease;
+  }
+  .icon-btn:hover{ background:rgba(255,255,255,0.16); }
+  .cart-badge{
+    position:absolute;
+    top:-6px; right:-6px;
+    background:var(--amber);
+    color:var(--navy);
+    font-size:11px;
+    font-weight:700;
+    min-width:18px; height:18px;
+    border-radius:9px;
+    display:flex; align-items:center; justify-content:center;
+    padding:0 4px;
+    font-family:'JetBrains Mono', monospace;
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;
+    background:var(--navy);
+    color:#fff;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:1100px;
+    margin:0 auto;
+    padding:36px 20px 44px;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:28px;
+    align-items:center;
+  }
+  .hero-copy .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    color:var(--amber);
+    background:rgba(255,176,32,0.1);
+    border:1px solid rgba(255,176,32,0.35);
+    padding:5px 10px;
+    border-radius:20px;
+    margin-bottom:14px;
+  }
+  .hero-copy .eyebrow::before{
+    content:"";
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 0 3px rgba(30,158,107,0.25);
+  }
+  .hero-copy h2{
+    font-size:clamp(26px, 4.2vw, 40px);
+    line-height:1.08;
+    font-weight:700;
+    margin-bottom:12px;
+  }
+  .hero-copy h2 span{ color:var(--amber); }
+  .hero-copy p{ color:#C7CFE2; font-size:15px; max-width:46ch; margin-bottom:20px; }
+  .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 20px;
+    border-radius:10px;
+    font-weight:600;
+    font-size:14.5px;
+    transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .btn-primary{ background:var(--amber); color:var(--navy); }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 10px 20px rgba(255,176,32,0.25); }
+  .btn-ghost{ background:rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.2); }
+  .btn-ghost:hover{ background:rgba(255,255,255,0.15); }
+  .hero-image{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    aspect-ratio:4/3;
+    box-shadow:var(--shadow-lg);
+    border:1px solid rgba(255,255,255,0.08);
+  }
+  .hero-image img{ width:100%; height:100%; object-fit:cover; }
+  .hero-image::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(11,18,32,0) 55%, rgba(11,18,32,0.55) 100%);
+  }
+  @media (max-width:760px){
+    .hero-inner{ grid-template-columns:1fr; padding:28px 18px 34px; }
+    .hero-image{ order:-1; aspect-ratio:16/10; }
+  }
+
+  /* ===== Category filters ===== */
+  .filters-wrap{
+    background:var(--card);
+    border-bottom:1px solid var(--line);
+    position:sticky;
+    top:74px;
+    z-index:40;
+  }
+  .filters{
+    max-width:1100px;
+    margin:0 auto;
+    padding:14px 20px;
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .filters::-webkit-scrollbar{ display:none; }
+  .chip{
+    flex-shrink:0;
+    padding:9px 16px;
+    border-radius:999px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--muted);
+    transition:all .15s ease;
+  }
+  .chip.active{
+    background:var(--navy);
+    color:#fff;
+    border-color:var(--navy);
+  }
+  .chip:hover:not(.active){ border-color:var(--amber-deep); color:var(--ink); }
+
+  /* ===== Product grid ===== */
+  main{ max-width:1100px; margin:0 auto; padding:28px 20px 40px; }
+  .section-title{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:16px;
+  }
+  .section-title h3{ font-size:20px; font-weight:700; }
+  .section-title span{ font-size:12.5px; color:var(--muted); font-family:'JetBrains Mono', monospace; }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
+    gap:16px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transition:box-shadow .15s ease, transform .15s ease;
+  }
+  .card:hover{ box-shadow:var(--shadow); transform:translateY(-2px); }
+  .card-img{
+    aspect-ratio:1/1;
+    background:var(--paper);
+    position:relative;
+    overflow:hidden;
+  }
+  .card-img img{ width:100%; height:100%; object-fit:cover; }
+  .card-cat{
+    position:absolute;
+    top:8px; left:8px;
+    background:rgba(11,18,32,0.75);
+    color:#fff;
+    font-size:10px;
+    font-weight:600;
+    padding:4px 8px;
+    border-radius:6px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .card-body{ padding:12px 14px 14px; display:flex; flex-direction:column; gap:6px; flex:1; }
+  .card-body h4{ font-size:14.5px; font-weight:600; line-height:1.3; }
+  .card-body .desc{ font-size:12.5px; color:var(--muted); line-height:1.4; flex:1; }
+  .card-footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:6px;
+  }
+  .price{ font-family:'JetBrains Mono', monospace; font-weight:600; font-size:16px; color:var(--ink); }
+  .add-btn{
+    background:var(--navy);
+    color:#fff;
+    padding:8px 14px;
+    border-radius:8px;
+    font-size:12.5px;
+    font-weight:600;
+    transition:background .15s ease, transform .1s ease;
+  }
+  .add-btn:hover{ background:var(--amber-deep); color:var(--navy); }
+  .add-btn.added{ background:var(--green); color:#fff; }
+  .add-btn:active{ transform:scale(0.94); }
+
+  .empty-state{
+    text-align:center;
+    padding:60px 20px;
+    color:var(--muted);
+  }
+
+  /* ===== Floating buttons ===== */
+  .floating-stack{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:60;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:flex-end;
+  }
+  .fab{
+    width:56px; height:56px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:var(--shadow-lg);
+    position:relative;
+    transition:transform .15s ease;
+  }
+  .fab:active{ transform:scale(0.92); }
+  .fab-cart{ background:var(--amber); color:var(--navy); }
+  .fab-whatsapp{ background:#25D366; color:#fff; }
+  .fab-badge{
+    position:absolute;
+    top:-4px; right:-4px;
+    background:var(--danger);
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    min-width:20px; height:20px;
+    border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono', monospace;
+    border:2px solid var(--paper);
+  }
+
+  /* ===== Modal / Drawer shared ===== */
+  .overlay{
+    position:fixed; inset:0;
+    background:rgba(11,18,32,0.5);
+    z-index:80;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .2s ease;
+  }
+  .overlay.open{ opacity:1; pointer-events:auto; }
+
+  .drawer{
+    position:fixed;
+    right:0; top:0; bottom:0;
+    width:min(420px, 100vw);
+    background:var(--paper);
+    z-index:90;
+    transform:translateX(100%);
+    transition:transform .28s cubic-bezier(.32,.72,0,1);
+    display:flex;
+    flex-direction:column;
+    box-shadow:-10px 0 40px rgba(0,0,0,0.2);
+  }
+  .drawer.open{ transform:translateX(0); }
+  .drawer-header{
+    background:var(--navy);
+    color:#fff;
+    padding:18px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .drawer-header h3{ font-size:17px; font-weight:700; }
+  .close-btn{
+    background:rgba(255,255,255,0.1);
+    color:#fff;
+    width:32px; height:32px;
+    border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:18px;
+    line-height:1;
+  }
+  .drawer-body{
+    flex:1;
+    overflow-y:auto;
+    padding:16px 20px;
+  }
+  .drawer-footer{
+    padding:16px 20px 20px;
+    background:var(--card);
+    border-top:1px solid var(--line);
+  }
+
+  .cart-item{
+    display:flex;
+    gap:12px;
+    padding:12px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .cart-item img{
+    width:64px; height:64px;
+    border-radius:10px;
+    object-fit:cover;
+    flex-shrink:0;
+    background:var(--card);
+  }
+  .cart-item-info{ flex:1; min-width:0; }
+  .cart-item-info h5{ font-size:14px; font-weight:600; margin-bottom:2px; }
+  .cart-item-info .unit-price{ font-size:12px; color:var(--muted); font-family:'JetBrains Mono', monospace; }
+  .qty-row{ display:flex; align-items:center; gap:10px; margin-top:8px; }
+  .qty-btn{
+    width:26px; height:26px;
+    border-radius:7px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700;
+    font-size:14px;
+    color:var(--ink);
+  }
+  .qty-btn:hover{ background:var(--line); }
+  .qty-val{ font-family:'JetBrains Mono', monospace; font-weight:600; min-width:18px; text-align:center; font-size:13.5px; }
+  .remove-link{
+    font-size:11.5px;
+    color:var(--danger);
+    font-weight:600;
+    margin-left:auto;
+  }
+  .cart-item-total{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700;
+    font-size:14px;
+    white-space:nowrap;
+  }
+
+  .totals-row{
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+    color:var(--muted);
+    margin-bottom:6px;
+  }
+  .totals-row.grand{
+    font-size:18px;
+    font-weight:700;
+    color:var(--ink);
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px dashed var(--line);
+  }
+  .totals-row.grand .amt{ font-family:'JetBrains Mono', monospace; }
+
+  .form-field{ margin-bottom:14px; }
+  .form-field label{
+    display:block;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--muted);
+    margin-bottom:6px;
+  }
+  .form-field label .req{ color:var(--danger); }
+  .form-field input, .form-field textarea{
+    width:100%;
+    padding:11px 12px;
+    border-radius:9px;
+    border:1px solid var(--line);
+    background:var(--card);
+    font-family:inherit;
+    font-size:14px;
+    color:var(--ink);
+  }
+  .form-field input:focus, .form-field textarea:focus{
+    outline:2px solid var(--amber);
+    outline-offset:1px;
+    border-color:var(--amber-deep);
+  }
+  .form-field textarea{ resize:vertical; min-height:70px; }
+
+  .full-btn{
+    width:100%;
+    padding:14px;
+    border-radius:11px;
+    background:var(--navy);
+    color:#fff;
+    font-weight:700;
+    font-size:15px;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    transition:background .15s ease;
+  }
+  .full-btn:hover{ background:var(--amber-deep); color:var(--navy); }
+  .full-btn:disabled{ opacity:0.6; cursor:not-allowed; }
+
+  .order-summary-box{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px 14px;
+    margin-bottom:16px;
+    font-size:13px;
+  }
+  .order-summary-box .line{
+    display:flex;
+    justify-content:space-between;
+    padding:4px 0;
+    color:var(--muted);
+  }
+  .order-summary-box .line b{ color:var(--ink); font-weight:600; }
+
+  .success-screen{
+    text-align:center;
+    padding:30px 10px;
+  }
+  .success-icon{
+    width:64px; height:64px;
+    border-radius:50%;
+    background:rgba(30,158,107,0.12);
+    color:var(--green);
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 16px;
+    font-size:30px;
+  }
+  .success-screen h4{ font-size:18px; margin-bottom:8px; }
+  .success-screen p{ color:var(--muted); font-size:14px; margin-bottom:18px; line-height:1.5; }
+
+  .toast{
+    position:fixed;
+    bottom:90px;
+    left:50%;
+    transform:translateX(-50%) translateY(20px);
+    background:var(--ink);
+    color:#fff;
+    padding:11px 18px;
+    border-radius:10px;
+    font-size:13.5px;
+    font-weight:500;
+    z-index:100;
+    opacity:0;
+    pointer-events:none;
+    transition:all .25s ease;
+    box-shadow:var(--shadow-lg);
+  }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+  footer{
+    background:var(--navy);
+    color:#B7C0D6;
+    text-align:center;
+    padding:26px 20px 30px;
+    font-size:12.5px;
+    line-height:1.7;
+  }
+  footer b{ color:#fff; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; animation:none !important; scroll-behavior:auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-mark">R⚡</div>
+      <div class="brand-text">
+        <h1>Raj Electronic</h1>
+        <p>Electronic products, Varanasi, UP</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a class="icon-btn" href="https://wa.me/919999999999" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.71.45 3.38 1.3 4.85L2.05 22l5.36-1.35c1.4.76 2.98 1.16 4.6 1.16h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0012.04 2zm0 18.06h-.01c-1.44 0-2.85-.39-4.08-1.12l-.29-.17-3.02.77.8-2.94-.19-.3a8.03 8.03 0 01-1.24-4.31c0-4.47 3.65-8.11 8.13-8.11 2.17 0 4.2.85 5.74 2.38a8.05 8.05 0 012.38 5.75c0 4.47-3.65 8.05-8.22 8.05zm4.46-6.02c-.24-.12-1.44-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.03-.38-1.96-1.21-.72-.65-1.21-1.44-1.35-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14-.01-.3-.01-.46-.01-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+      </a>
+      <button class="icon-btn" id="cartIconBtn" aria-label="Open cart">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"></path></svg>
+        <span class="cart-badge" id="headerCartBadge" style="display:none;">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow">OPEN NOW · VARANASI, UP</div>
+      <h2>Real electronics,<br><span>ordered in a tap.</span></h2>
+      <p>Speakers, mics, watches &amp; more — pick what you need, we'll confirm on WhatsApp and get it to your door.</p>
+      <div class="hero-ctas">
+        <a href="#shop" class="btn btn-primary">Browse Products ↓</a>
+        <a href="https://wa.me/919999999999" target="_blank" rel="noopener" class="btn btn-ghost">Chat on WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://i.ibb.co/FL8GSmL5/images-3.jpg" alt="Raj Electronic shop display of electronic products" loading="lazy">
+    </div>
+  </div>
+</section>
+<div class="circuit-rule"></div>
+
+<!-- ===== Category filters ===== -->
+<div class="filters-wrap">
+  <div class="filters" id="filterBar"></div>
+</div>
+
+<!-- ===== Products ===== -->
+<main id="shop">
+  <div class="section-title">
+    <h3>Our Products</h3>
+    <span id="resultCount">0 items</span>
+  </div>
+  <div class="grid" id="productGrid"></div>
+  <div class="empty-state" id="emptyState" style="display:none;">No products found in this category.</div>
+</main>
+
+<footer>
+  <div><b>Raj Electronic</b> · Electronic products</div>
+  <div>Varanasi, UP</div>
+  <div>📞 <a href="tel:+919999999999">+91 99999 99999</a> &nbsp;|&nbsp; ✉️ <a href="mailto:techraj2006@gmail.com">techraj2006@gmail.com</a></div>
+  <div style="margin-top:8px; opacity:0.7;">Orders are confirmed manually via WhatsApp/phone. Prices &amp; availability subject to confirmation.</div>
+</footer>
+
+<!-- ===== Floating buttons ===== -->
+<div class="floating-stack">
+  <a class="fab fab-whatsapp" href="https://wa.me/919999999999" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.71.45 3.38 1.3 4.85L2.05 22l5.36-1.35c1.4.76 2.98 1.16 4.6 1.16h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0012.04 2zm0 18.06h-.01c-1.44 0-2.85-.39-4.08-1.12l-.29-.17-3.02.77.8-2.94-.19-.3a8.03 8.03 0 01-1.24-4.31c0-4.47 3.65-8.11 8.13-8.11 2.17 0 4.2.85 5.74 2.38a8.05 8.05 0 012.38 5.75c0 4.47-3.65 8.05-8.22 8.05zm4.46-6.02c-.24-.12-1.44-.71-1.67-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.03-.38-1.96-1.21-.72-.65-1.21-1.44-1.35-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42-.14-.01-.3-.01-.46-.01-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+  </a>
+  <button class="fab fab-cart" id="fabCartBtn" aria-label="Open cart">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"></path></svg>
+    <span class="fab-badge" id="fabCartBadge" style="display:none;">0</span>
+  </button>
+</div>
+
+<!-- ===== Overlay ===== -->
+<div class="overlay" id="overlay"></div>
+
+<!-- ===== Cart Drawer ===== -->
+<div class="drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="drawer-header">
+    <h3>Your Cart</h3>
+    <button class="close-btn" id="closeCartBtn" aria-label="Close cart">✕</button>
+  </div>
+  <div class="drawer-body" id="cartDrawerBody">
+    <!-- filled by JS -->
+  </div>
+  <div class="drawer-footer" id="cartDrawerFooter">
+    <!-- filled by JS -->
+  </div>
+</div>
+
+<!-- ===== Checkout Drawer ===== -->
+<div class="drawer" id="checkoutDrawer" aria-label="Checkout">
+  <div class="drawer-header">
+    <h3>Place Order</h3>
+    <button class="close-btn" id="closeCheckoutBtn" aria-label="Close checkout">✕</button>
+  </div>
+  <div class="drawer-body" id="checkoutDrawerBody">
+    <!-- filled by JS -->
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* =========================================================
+     SHOP CONFIG — edit this block to rebrand the whole site
+  ========================================================= */
+  const SHOP = {
+    name: "Raj Electronic",
+    tagline: "Electronic products",
+    location: "Varanasi, UP",
+    phone: "919999999999",          // WhatsApp / call number, country code no plus/spaces
+    email: "techraj2006@gmail.com",
+    formspreeEndpoint: "https://formspree.io/f/YOUR_FORM_ID" // <-- replace with your real Formspree form ID
+  };
+
+  /* =========================================================
+     PRODUCTS — add/remove/edit items here
+  ========================================================= */
+  const PRODUCTS = [
+    {
+      id: "p1",
+      name: "Wireless Mic",
+      price: 2600,
+      category: "electronic",
+      img: "https://i.ibb.co/JWw7DKct/IMG-20260712-170738.jpg",
+      desc: "Premium wireless mic"
+    },
+    {
+      id: "p2",
+      name: "Bluetooth Mini Speaker",
+      price: 500,
+      category: "electronic",
+      img: "https://i.ibb.co/xn4JFxP/IMG-20260712-170757.jpg",
+      desc: "Mini but powerful 💪"
+    },
+    {
+      id: "p3",
+      name: "Hand Watch",
+      price: 500,
+      category: "electronic",
+      img: "https://i.ibb.co/7tkJVhWK/IMG-20260712-170805.jpg",
+      desc: "Premium hand watch ⌚"
+    }
+  ];
+
+  const money = n => "₹" + Number(n).toLocaleString("en-IN");
+
+  /* =========================================================
+     STATE
+  ========================================================= */
+  let cart = {}; // { productId: qty }
+  try {
+    cart = JSON.parse(localStorage.getItem("rajElectronicCart") || "{}");
+  } catch(e){ cart = {}; }
+
+  let activeCategory = "all";
+
+  function saveCart(){
+    localStorage.setItem("rajElectronicCart", JSON.stringify(cart));
+    renderCartBadges();
+  }
+
+  function cartCount(){
+    return Object.values(cart).reduce((a,b)=>a+b, 0);
+  }
+
+  function cartLines(){
+    return Object.entries(cart)
+      .map(([id, qty]) => {
+        const p = PRODUCTS.find(x => x.id === id);
+        if(!p) return null;
+        return { ...p, qty, lineTotal: p.price * qty };
+      })
+      .filter(Boolean);
+  }
+
+  function cartTotal(){
+    return cartLines().reduce((sum, l) => sum + l.lineTotal, 0);
+  }
+
+  /* =========================================================
+     RENDER: Filter bar
+  ========================================================= */
+  function getCategories(){
+    const cats = Array.from(new Set(PRODUCTS.map(p => p.category)));
+    return ["all", ...cats];
+  }
+
+  function renderFilters(){
+    const bar = document.getElementById("filterBar");
+    bar.innerHTML = "";
+    getCategories().forEach(cat => {
+      const btn = document.createElement("button");
+      btn.className = "chip" + (cat === activeCategory ? " active" : "");
+      btn.textContent = cat === "all" ? "All Products" : cat.charAt(0).toUpperCase() + cat.slice(1);
+      btn.addEventListener("click", () => {
+        activeCategory = cat;
+        renderFilters();
+        renderGrid();
+      });
+      bar.appendChild(btn);
+    });
+  }
+
+  /* =========================================================
+     RENDER: Product grid
+  ========================================================= */
+  function renderGrid(){
+    const grid = document.getElementById("productGrid");
+    const empty = document.getElementById("emptyState");
+    const list = activeCategory === "all" ? PRODUCTS : PRODUCTS.filter(p => p.category === activeCategory);
+
+    document.getElementById("resultCount").textContent = list.length + (list.length === 1 ? " item" : " items");
+
+    grid.innerHTML = "";
+    if(list.length === 0){
+      empty.style.display = "block";
+      return;
+    }
+    empty.style.display = "none";
+
+    list.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="card-img">
+          <span class="card-cat">${escapeHtml(p.category)}</span>
+          <img src="${escapeAttr(p.img)}" alt="${escapeAttr(p.name)}" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h4>${escapeHtml(p.name)}</h4>
+          <div class="desc">${escapeHtml(p.desc)}</div>
+          <div class="card-footer">
+            <span class="price">${money(p.price)}</span>
+            <button class="add-btn" data-id="${p.id}">Add to Cart</button>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    grid.querySelectorAll(".add-btn").forEach(btn => {
+      btn.addEventListener("click", () => addToCart(btn.dataset.id, btn));
+    });
+  }
+
+  function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, s => ({
+      "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+    }[s]));
+  }
+  function escapeAttr(str){ return escapeHtml(str); }
+
+  /* =========================================================
+     CART ACTIONS
+  ========================================================= */
+  function addToCart(id, btnEl){
+    cart[id] = (cart[id] || 0) + 1;
+    saveCart();
+    showToast("Added to cart");
+    if(btnEl){
+      btnEl.classList.add("added");
+      btnEl.textContent = "Added ✓";
+      setTimeout(() => {
+        btnEl.classList.remove("added");
+        btnEl.textContent = "Add to Cart";
+      }, 900);
+    }
+    if(document.getElementById("cartDrawer").classList.contains("open")){
+      renderCartDrawer();
+    }
+  }
+
+  function changeQty(id, delta){
+    if(!cart[id]) return;
+    cart[id] += delta;
+    if(cart[id] <= 0) delete cart[id];
+    saveCart();
+    renderCartDrawer();
+  }
+
+  function removeItem(id){
+    delete cart[id];
+    saveCart();
+    renderCartDrawer();
+  }
+
+  function renderCartBadges(){
+    const count = cartCount();
+    [document.getElementById("headerCartBadge"), document.getElementById("fabCartBadge")].forEach(el => {
+      if(count > 0){
+        el.style.display = "flex";
+        el.textContent = count;
+      } else {
+        el.style.display = "none";
+      }
+    });
+  }
+
+  /* =========================================================
+     RENDER: Cart Drawer
+  ========================================================= */
+  function renderCartDrawer(){
+    const body = document.getElementById("cartDrawerBody");
+    const footer = document.getElementById("cartDrawerFooter");
+    const lines = cartLines();
+
+    if(lines.length === 0){
+      body.innerHTML = `<div class="empty-state">Your cart is empty.<br><br>Add some products to get started!</div>`;
+      footer.innerHTML = "";
+      return;
+    }
+
+    body.innerHTML = lines.map(l => `
+      <div class="cart-item" data-id="${l.id}">
+        <img src="${escapeAttr(l.img)}" alt="${escapeAttr(l.name)}" loading="lazy">
+        <div class="cart-item-info">
+          <h5>${escapeHtml(l.name)}</h5>
+          <div class="unit-price">${money(l.price)} each</div>
+          <div class="qty-row">
+            <button class="qty-btn" data-action="minus" data-id="${l.id}">−</button>
+            <span class="qty-val">${l.qty}</span>
+            <button class="qty-btn" data-action="plus" data-id="${l.id}">+</button>
+            <button class="remove-link" data-action="remove" data-id="${l.id}">Remove</button>
+          </div>
+        </div>
+        <div class="cart-item-total">${money(l.lineTotal)}</div>
+      </div>
+    `).join("");
+
+    const total = cartTotal();
+    footer.innerHTML = `
+      <div class="totals-row grand"><span>Total</span><span class="amt">${money(total)}</span></div>
+      <button class="full-btn" id="proceedCheckoutBtn" style="margin-top:12px;">Proceed to Checkout →</button>
+    `;
+
+    body.querySelectorAll("[data-action]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const id = btn.dataset.id;
+        const action = btn.dataset.action;
+        if(action === "plus") changeQty(id, 1);
+        if(action === "minus") changeQty(id, -1);
+        if(action === "remove") removeItem(id);
+      });
+    });
+
+    const proceedBtn = document.getElementById("proceedCheckoutBtn");
+    if(proceedBtn){
+      proceedBtn.addEventListener("click", () => {
+        closeCart();
+        openCheckout();
+      });
+    }
+  }
+
+  /* =========================================================
+     RENDER: Checkout Drawer
+  ========================================================= */
+  function renderCheckoutForm(){
+    const body = document.getElementById("checkoutDrawerBody");
+    const lines = cartLines();
+    const total = cartTotal();
+
+    if(lines.length === 0){
+      body.innerHTML = `<div class="empty-state">Your cart is empty.<br><br>Add products before checking out.</div>`;
+      return;
+    }
+
+    body.innerHTML = `
+      <div class="order-summary-box">
+        ${lines.map(l => `
+          <div class="line"><span>${escapeHtml(l.name)} × ${l.qty}</span><b>${money(l.lineTotal)}</b></div>
+        `).join("")}
+        <div class="line" style="border-top:1px dashed var(--line); margin-top:6px; padding-top:8px;">
+          <span>Grand Total</span><b>${money(total)}</b>
+        </div>
+      </div>
+
+      <form id="orderForm">
+        <div class="form-field">
+          <label>Customer Name <span class="req">*</span></label>
+          <input type="text" name="customer_name" required placeholder="Your full name">
+        </div>
+        <div class="form-field">
+          <label>Phone Number <span class="req">*</span></label>
+          <input type="tel" name="customer_phone" required placeholder="10-digit mobile number" pattern="[0-9+\\s-]{7,15}">
+        </div>
+        <div class="form-field">
+          <label>Delivery Address <span class="req">*</span></label>
+          <textarea name="customer_address" required placeholder="House no, street, area, landmark, city, pincode"></textarea>
+        </div>
+        <div class="form-field">
+          <label>Special Instructions (optional)</label>
+          <textarea name="customer_notes" placeholder="Anything else we should know?"></textarea>
+        </div>
+
+        <!-- Hidden fields: full readable order summary for the email -->
+        <input type="hidden" name="_subject" value="New Order — ${SHOP.name}">
+        <input type="hidden" name="order_items_summary" id="order_items_summary">
+        <input type="hidden" name="order_grand_total" id="order_grand_total">
+        <input type="hidden" name="full_order_email_body" id="full_order_email_body">
+
+        <button type="submit" class="full-btn" id="placeOrderBtn">Place Order — ${money(total)}</button>
+      </form>
+    `;
+
+    // Build machine + human readable hidden summary fields
+    const itemsSummary = lines.map(l => `${l.name} x${l.qty} @ ${money(l.price)} = ${money(l.lineTotal)}`).join("\n");
+    document.getElementById("order_items_summary").value = itemsSummary;
+    document.getElementById("order_grand_total").value = money(total);
+
+    const form = document.getElementById("orderForm");
+    form.addEventListener("submit", handleOrderSubmit);
+  }
+
+  function buildFullEmailBody(formData, lines, total){
+    const name = formData.get("customer_name");
+    const phone = formData.get("customer_phone");
+    const address = formData.get("customer_address");
+    const notes = formData.get("customer_notes") || "(none)";
+
+    let body = `NEW ORDER — ${SHOP.name}\n`;
+    body += `============================\n\n`;
+    body += `ITEMS ORDERED:\n`;
+    lines.forEach(l => {
+      body += `- ${l.name}  |  Qty: ${l.qty}  |  Price: ${money(l.price)}  |  Subtotal: ${money(l.lineTotal)}\n`;
+    });
+    body += `\nGRAND TOTAL: ${money(total)}\n`;
+    body += `\n----------------------------\n`;
+    body += `CUSTOMER DETAILS:\n`;
+    body += `Name: ${name}\n`;
+    body += `Phone: ${phone}\n`;
+    body += `Address: ${address}\n`;
+    body += `Special Instructions: ${notes}\n`;
+    body += `\n----------------------------\n`;
+    body += `Please contact the customer on WhatsApp/phone to confirm availability, pricing, and delivery.\n`;
+    return body;
+  }
+
+  function handleOrderSubmit(e){
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById("placeOrderBtn");
+    const lines = cartLines();
+    const total = cartTotal();
+
+    if(lines.length === 0){
+      showToast("Your cart is empty");
+      return;
+    }
+
+    const formData = new FormData(form);
+    const fullBody = buildFullEmailBody(formData, lines, total);
+    document.getElementById("full_order_email_body").value = fullBody;
+    // Re-read formData since we just set a hidden field's value via DOM
+    const finalData = new FormData(form);
+
+    btn.disabled = true;
+    btn.textContent = "Placing order…";
+
+    const endpointConfigured = SHOP.formspreeEndpoint && !SHOP.formspreeEndpoint.includes("YOUR_FORM_ID");
+
+    if(!endpointConfigured){
+      // No real Formspree endpoint set up yet — simulate success so the shop owner can preview the flow,
+      // but tell them clearly in the console what to fix.
+      console.warn("Formspree endpoint not configured. Replace SHOP.formspreeEndpoint with your real form ID from formspree.io to actually receive order emails.");
+      setTimeout(() => {
+        showOrderSuccess();
+      }, 600);
+      return;
+    }
+
+    fetch(SHOP.formspreeEndpoint, {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: finalData
+    })
+    .then(res => {
+      if(res.ok){
+        showOrderSuccess();
+      } else {
+        throw new Error("Form submission failed");
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      btn.disabled = false;
+      btn.textContent = `Place Order — ${money(total)}`;
+      showToast("Could not send order. Please try again or WhatsApp us directly.");
+    });
+  }
+
+  function showOrderSuccess(){
+    cart = {};
+    saveCart();
+    const body = document.getElementById("checkoutDrawerBody");
+    body.innerHTML = `
+      <div class="success-screen">
+        <div class="success-icon">✓</div>
+        <h4>Order placed!</h4>
+        <p>${escapeHtml(SHOP.name)} will contact you on WhatsApp shortly to confirm your order, pricing, and delivery.</p>
+        <a class="btn btn-primary" style="width:100%; justify-content:center;" href="https://wa.me/${SHOP.phone}" target="_blank" rel="noopener">
+          Chat on WhatsApp Now
+        </a>
+        <button class="full-btn" style="margin-top:10px; background:var(--paper); color:var(--ink); border:1px solid var(--line);" id="continueShoppingBtn">
+          Continue Shopping
+        </button>
+      </div>
+    `;
+    document.getElementById("continueShoppingBtn").addEventListener("click", () => {
+      closeCheckout();
+      renderGrid();
+    });
+  }
+
+  /* =========================================================
+     DRAWER OPEN/CLOSE
+  ========================================================= */
+  const overlay = document.getElementById("overlay");
+  const cartDrawer = document.getElementById("cartDrawer");
+  const checkoutDrawer = document.getElementById("checkoutDrawer");
+
+  function openCart(){
+    renderCartDrawer();
+    cartDrawer.classList.add("open");
+    overlay.classList.add("open");
+  }
+  function closeCart(){
+    cartDrawer.classList.remove("open");
+    if(!checkoutDrawer.classList.contains("open")) overlay.classList.remove("open");
+  }
+  function openCheckout(){
+    renderCheckoutForm();
+    checkoutDrawer.classList.add("open");
+    overlay.classList.add("open");
+  }
+  function closeCheckout(){
+    checkoutDrawer.classList.remove("open");
+    if(!cartDrawer.classList.contains("open")) overlay.classList.remove("open");
+  }
+
+  document.getElementById("cartIconBtn").addEventListener("click", openCart);
+  document.getElementById("fabCartBtn").addEventListener("click", openCart);
+  document.getElementById("closeCartBtn").addEventListener("click", closeCart);
+  document.getElementById("closeCheckoutBtn").addEventListener("click", closeCheckout);
+  overlay.addEventListener("click", () => { closeCart(); closeCheckout(); });
+
+  /* =========================================================
+     TOAST
+  ========================================================= */
+  let toastTimer;
+  function showToast(msg){
+    const t = document.getElementById("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove("show"), 1800);
+  }
+
+  /* =========================================================
+     INIT
+  ========================================================= */
+  // wire up WhatsApp/phone links from config (in case SHOP.phone edited)
+  document.querySelectorAll('a[href^="https://wa.me/"]').forEach(a => {
+    a.href = `https://wa.me/${SHOP.phone}`;
+  });
+
+  renderFilters();
+  renderGrid();
+  renderCartBadges();
+
+})();
+</script>
+</body>
+</html>
